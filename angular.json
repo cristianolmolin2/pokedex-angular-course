@@ -20,6 +20,7 @@
             "outputPath": "dist/pokedex-angular-course",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "/pokedex-angular-course/",
             "polyfills": [
               "zone.js"
             ],
@@ -56,7 +57,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -100,5 +107,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
