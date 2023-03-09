@@ -13,7 +13,7 @@ export class PokeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.pokemonList.subscribe(res => res);
+    this.service.pokemonList.subscribe(res => console.log(res));
   }
 
 }
