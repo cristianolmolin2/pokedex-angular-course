@@ -33,4 +33,16 @@ export class PokeApiService {
       )
     )
   }
+
+  getPokemonDetailsById(pokemonId: string) {
+    return this.getPokemonDetails(`${environment.apiUrl}pokemon/${pokemonId}`)
+  }
+
+  getPokemonJapaneseName(pokemonId: string) {
+    return this.http.get<any>(`${environment.apiUrl}pokemon-species/${pokemonId}`).pipe(
+      map(
+        res => res
+      )
+    )
+  }
 }
