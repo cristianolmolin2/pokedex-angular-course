@@ -22,4 +22,8 @@ export class PokeListComponent implements OnInit {
     //this.service.pokemonList.subscribe(res => console.log(res));
   }
 
+  findPokemonByName() {
+
+  }
+
 }
