@@ -12,7 +12,7 @@ export class PokeApiService {
   constructor(private http: HttpClient) { }
 
   get pokemonList(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}pokemon/?offset=0&limit=100`).pipe(
+    return this.http.get<any>(`${environment.apiUrl}pokemon/?offset=0&limit=251`).pipe(
       tap(res => res),
       tap(res => {
         res.results.map(

@@ -10,18 +10,27 @@ import { PokeApiService } from 'src/app/service/poke-api.service';
 })
 export class DetailsComponent implements OnInit {
 
+  pokemonDetails: any = {};
+  isLoading: boolean = true;
+  apiError: boolean = false;
+
   constructor(private service: PokeApiService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.pokemonDetails;
+    this.getPokemonDetails;
   }
 
-  get pokemonDetails() {
+  get getPokemonDetails() {
     const pokemonId = this.activeRoute.snapshot.params['id'];
     const pokemon = this.service.getPokemonDetailsById(pokemonId);
     const pokemonName = this.service.getPokemonJapaneseName(pokemonId);
 
-    forkJoin([pokemon, pokemonName]).subscribe(res => console.log(res));
+    forkJoin([pokemon, pokemonName]).subscribe(res => {
+      this.pokemonDetails = res;
+      this.isLoading = false;
+    }, error => {
+      this.apiError = true;
+    });
 
     return console.log(pokemon);
   }

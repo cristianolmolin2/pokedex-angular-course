@@ -10,6 +10,7 @@ export class PokeListComponent implements OnInit {
 
   pokemonList: Array<any> = [];
   originalPokemonList: Array<any> = [];
+  apiError: boolean = false;
 
   constructor(private service: PokeApiService) {
 
@@ -20,6 +21,8 @@ export class PokeListComponent implements OnInit {
       console.log(res);
       this.originalPokemonList = res.results;
       this.pokemonList = this.originalPokemonList;
+    }, error => {
+      this.apiError = true;
     });
     //this.service.pokemonList.subscribe(res => console.log(res));
   }
