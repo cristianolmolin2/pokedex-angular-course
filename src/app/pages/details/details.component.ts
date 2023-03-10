@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
   constructor(private service: PokeApiService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getPokemonDetails;
+    this.getPokemonDetails();
   }
 
   getPokemonDetails() {
