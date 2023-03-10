@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
     this.getPokemonDetails;
   }
 
-  get getPokemonDetails() {
+  getPokemonDetails() {
     const pokemonId = this.activeRoute.snapshot.params['id'];
     const pokemon = this.service.getPokemonDetailsById(pokemonId);
     const pokemonName = this.service.getPokemonJapaneseName(pokemonId);
